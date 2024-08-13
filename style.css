@@ -226,7 +226,7 @@ nav ul.outer-list>li:hover ul.inner-list-one>li:hover ul.inner-list-two{
         position: absolute;
         top: 0;
         right: -800px;
-        width: 45%;
+        width: 60%;
         height: 100vh;
         padding: 5em 1em;
         transition: 1s ease;
