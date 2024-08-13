@@ -1,0 +1,291 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6em;
+}
+
+.btn-to-blu{
+    text-decoration: none;
+    color: blue;
+    display: inline-block;
+    margin-top: 0.8em;
+    padding: 0.8em 3em;
+    border: solid 1px blue;
+    position: relative;
+    transition: 0.5s ease;
+    z-index: 1;
+}
+.btn-to-blu:hover{
+    color: #fff;
+}
+.btn-to-blu::before{
+    content: '';
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(45deg,deeppink,blue,deeppink);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 1s ease;
+    z-index: -1;
+}
+.btn-to-blu:hover::before{
+    width: 100%;
+}
+
+section.main{
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:  1em 2em;
+    background: linear-gradient(45deg,deeppink,blue ,deeppink);
+
+
+    position: relative;
+    z-index: 50;
+}
+
+header h2>a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 28px;
+}
+
+nav input#checkbox{
+    opacity: 0;
+    position: relative;
+    z-index: 100;
+    display: none;
+}
+nav label.bar{
+    display: block;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0.7em;
+    z-index: 100;
+    display: none;
+}
+
+nav label.bar .bottom{
+    background-color: #fff;
+    width: 24px;
+    height: 5px;
+    border-radius: 10px;
+    position: absolute;
+    transition: 600ms ease;
+}
+nav label.bar .top{
+    background-color: #fff;
+    width: 24px;
+    height: 5px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 20px;
+    transition: 600ms ease;
+}
+nav label.bar .middle{
+    background-color: #fff;
+    width: 24px;
+    height: 5px;
+    border-radius: 10px;
+    position: absolute;
+    bottom:9px;
+    transition: 600ms ease;
+}
+
+nav input#checkbox:checked ~ .bar .middle{
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+nav input#checkbox:checked ~ .bar .top{
+    transform: rotate(-45deg);
+    transform-origin: right;
+    height: 4px;
+}
+nav input#checkbox:checked ~ .bar .bottom{
+    transform: rotate(45deg);
+    transform-origin: right;
+    bottom: 3px;
+    height: 4px;
+}
+nav input#checkbox:checked ~ ul.outer-list{
+    right: 0;
+}
+
+nav ul.outer-list{
+    list-style: none;
+    background-color: inherit;
+
+    display: flex;
+    align-items: center;
+}
+
+nav ul.outer-list>li{
+    margin-right: 2.5em;
+    position: relative;
+}
+
+nav ul.outer-list>li:last-child{
+    margin-right: 0;
+}
+/* GENERAL */
+nav ul{
+    background-color: blue;
+}
+nav ul.outer-list li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+nav ul.outer-list li{
+    padding:0.3em 0.6em;
+}
+nav ul.outer-list li::after{
+    content: '';
+    background-color: #fff;
+    width: 0%;
+    height: 2px;
+    display: block;
+    transition: all 0.5s linear;
+}
+nav ul.outer-list li:hover::after{
+    width: 100%;
+}
+
+nav ul.outer-list>li ul.inner-list-one{
+    list-style: none;
+    padding: 1em 0;
+    width: 200px;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 0 1px rgba(0,0,0,0.5);
+
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+nav ul.outer-list>li:hover ul.inner-list-one{
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+nav ul.outer-list>li ul.inner-list-one>li ul.inner-list-two{
+    list-style: none;
+    padding: 1em 0;
+    width: 200px;
+
+    position: absolute;
+    top: 70%;
+    left: 100%;
+    box-shadow: 0 0 1px rgba(0,0,0,0.5);
+
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+nav ul.outer-list>li:hover ul.inner-list-one>li:hover ul.inner-list-two{
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+@media (max-width:850px) {
+    nav label.bar{
+        display: flex;
+    }
+    nav ul.outer-list{
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -800px;
+        width: 45%;
+        height: 100vh;
+        padding: 5em 1em;
+        transition: 1s ease;
+        background: linear-gradient(45deg,deeppink,blue,deeppink);
+    }
+    
+    nav ul.outer-list>li{
+        margin: 0;
+    }
+
+    nav ul.outer-list li{
+        padding: 0.7em 0;
+        border-bottom: 2px dashed #fff;
+    }
+    nav ul.outer-list li:has(ul):hover{
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    nav ul.outer-list li::after{
+        display: none;
+    }
+
+    nav ul.outer-list>li ul.inner-list-one,
+    nav ul.outer-list>li ul.inner-list-one>li ul.inner-list-two{
+
+        list-style: none;
+        padding: 1em 0;
+        width: 200px;
+        position: static;
+        display: none;
+        box-shadow: none;
+        background-color: inherit;
+    }
+    nav ul.outer-list>li:hover ul.inner-list-one,
+    nav ul.outer-list>li:hover ul.inner-list-one>li:hover ul.inner-list-two{
+        display: block;
+        padding: 0 0 0 1em;
+        width: inherit;
+    }
+}
+
+.center-text{
+    width: 90%;
+    margin: 8em auto 0;
+    text-align: center;
+}
+.center-text h1{
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0.5em 0;
+    background: linear-gradient(90deg,blue,deeppink,blue,deeppink,deeppink);
+    background-clip: text;
+    color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:900;
+    letter-spacing: 2px;
+}
+.center-text p{
+    font-weight: normal;
+    color: rgb(9, 9, 116);
+}
