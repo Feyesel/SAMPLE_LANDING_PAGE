@@ -226,8 +226,8 @@ nav ul.outer-list>li:hover ul.inner-list-one>li:hover ul.inner-list-two{
         position: absolute;
         top: 0;
         right: -800px;
-        width: 60%;
-        height: 100vh;
+        width: 75%;
+        min-height: 100vh;
         padding: 5em 1em;
         transition: 1s ease;
         background: linear-gradient(45deg,deeppink,blue,deeppink);
@@ -279,6 +279,8 @@ nav ul.outer-list>li:hover ul.inner-list-one>li:hover ul.inner-list-two{
     font-size: 30px;
     padding: 0.5em 0;
     background: linear-gradient(90deg,blue,deeppink,blue,deeppink,deeppink);
+    -webkit-background-clip: linear-gradient(90deg,blue,deeppink,blue,deeppink,deeppink);
+    -moz-background-clip: linear-gradient(90deg,blue,deeppink,blue,deeppink,deeppink);
     background-clip: text;
     color: transparent;
     font-family: Arial, Helvetica, sans-serif;
@@ -288,4 +290,16 @@ nav ul.outer-list>li:hover ul.inner-list-one>li:hover ul.inner-list-two{
 .center-text p{
     font-weight: normal;
     color: rgb(9, 9, 116);
+}
+
+@media (max-width:680px) {
+    .center-text h1{
+        font-size: 24px;
+    }
+    .center-text p{
+        font-size: 13px;
+    }
+    .btn-to-blu{
+        padding: 0.4em 1.2em;
+    }
 }
